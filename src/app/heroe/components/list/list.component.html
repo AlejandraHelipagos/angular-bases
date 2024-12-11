@@ -1,0 +1,38 @@
+<div class="max-w-md mx-auto p-4 bg-white shadow-lg rounded-lg">
+  <h2 class="text-xl font-semibold text-gray-800 mb-4">Mi Lista de hereos</h2>
+
+  <div class="flex flex-col py-3">
+    <div class="flex flex-col gap-2 py-4">
+      <h3 *ngIf="deleteHero; else nothingWasDelete">
+        Hereo borrado:
+        <p class="font-semibold text-red-500">{{ deleteHero }}</p>
+      </h3>
+
+      <ng-template #nothingWasDelete>
+        <h3>No ha borrado ningún elemento aún</h3>
+      </ng-template>
+
+      <button
+        *ngIf="heroNames.length > 0; else reset"
+        (click)="removeLastHero()"
+        class="rounded-xl bg-red-500 text-white font-medium p-2"
+      >
+        Borar ultimo hereo
+      </button>
+
+      <ng-template #reset>
+        <button
+          *ngIf="heroNames.length == 0"
+          (click)="reserList()"
+          class="rounded-xl bg-red-500 text-white font-medium p-2"
+        >
+          Reset list
+        </button>
+      </ng-template>
+    </div>
+
+    <ul class="list-disc pl-5 space-y-2">
+      <li *ngFor="let name of heroNames">{{ name }}</li>
+    </ul>
+  </div>
+</div>
