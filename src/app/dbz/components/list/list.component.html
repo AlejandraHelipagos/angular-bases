@@ -2,19 +2,27 @@
 
 <table class="w-full border border-collapse border-gray-300 table-auto">
   <thead>
-    <tr class="font-normal text-left bg-gray-200">
+    <tr class="font-normal bg-gray-200">
       <th class="px-4 py-2">Nombre</th>
       <th class="px-4 py-2">Poder</th>
+      <th class="px-4 py-2">Eliminar</th>
     </tr>
   </thead>
   <tbody>
-    <tr
-      *ngFor="let character of characterList"
-      class="even:bg-gray-100"
-    >
+    <tr *ngFor="let character of characterList" class="even:bg-gray-100">
       <td class="px-4 py-2 border border-gray-300">{{ character.name }}</td>
       <td class="px-4 py-2 border border-gray-300">
         {{ character.power }}
+      </td>
+      <td
+        class="flex items-center justify-center w-full p-2 border border-gray-300"
+      >
+        <div
+          class="p-2 text-base text-white bg-red-500 rounded-md"
+          (click)="onDeleteCharacterById(character.id ?? 0)"
+        >
+          x
+        </div>
       </td>
     </tr>
   </tbody>

@@ -9,14 +9,17 @@ import { Character } from '../interface/charactet.interface';
 export class MainPageComponent {
   public characters: Character[] = [
     {
+      id: 5,
       name: 'Goku',
       power: 100,
     },
     {
+      id: 6,
       name: 'Vegeta',
       power: 80,
     },
     {
+      id: 7,
       name: 'Gohan',
       power: 70,
     },
@@ -24,5 +27,9 @@ export class MainPageComponent {
 
   onNewCharacter(character: Character): void {
     this.characters.push(character);
+  }
+
+  onDeleteCharacter(id: number): void {
+    this.characters = this.characters.filter(c => c.id !== id);
   }
 }
