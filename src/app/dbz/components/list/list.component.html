@@ -1,5 +1,21 @@
-<h4>Listado</h4>
-<ul>
-  <li>abc</li>
-  <li>ddd</li>
-</ul>
+<h1 class="py-4 text-xl font-bold text-gray-500">Agregar Personaje</h1>
+
+<table class="w-full border border-collapse border-gray-300 table-auto">
+  <thead>
+    <tr class="font-normal text-left bg-gray-200">
+      <th class="px-4 py-2">Nombre</th>
+      <th class="px-4 py-2">Poder</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      *ngFor="let character of characterList"
+      class="even:bg-gray-100"
+    >
+      <td class="px-4 py-2 border border-gray-300">{{ character.name }}</td>
+      <td class="px-4 py-2 border border-gray-300">
+        {{ character.power }}
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,4 +1,8 @@
-<div>hola</div>
+<div class="flex flex-col gap-4 p-6">
+  <h1 class="text-2xl font-semibold">DBZ Personajes</h1>
 
-<app-dbz-list></app-dbz-list>
-<app-add-character></app-add-character>
+  <dbz-list [characterList]="characters"></dbz-list>
+  <dbz-add-character
+    (onNewCharacter)="onNewCharacter($event)"
+  ></dbz-add-character>
+</div>
